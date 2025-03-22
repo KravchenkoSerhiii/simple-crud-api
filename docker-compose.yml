@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  fastapi-app:
+    build: .
+    container_name: fastapi-app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql+asyncpg://fastapi_user:lolkek17@db:5432/fastapi-db
+
+  db:
+    image: postgres:15
+    container_name: fastapi-db
+    restart: always
+    environment:
+      POSTGRES_DB: fastapi-db
+      POSTGRES_USER: fastapi_user
+      POSTGRES_PASSWORD: lolkek17
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
