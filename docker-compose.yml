@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgresql+asyncpg://fastapi_user:lolkek17@db:5432/fastapi-db
+      DATABASE_URL: postgresql+asyncpg://fastapi_user:lolkek17@fastapi-db.cdiy4my8iw6o.eu-central-1.rds.amazonaws.com:5432/fastapi-db
 
   db:
     image: postgres:15
