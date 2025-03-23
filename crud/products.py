@@ -7,19 +7,19 @@ import models
 import schemas
 
 async def create_product(db: AsyncSession, product: schemas.ProductCreate):
-    db_product = models.Product(name=product.name, quantity=product.quantity, sku=product.sku)
+    db_product = schemas.Product(name=product.name, quantity=product.quantity, sku=product.sku)
     db.add(db_product)
     await db.commit()
     await db.refresh(db_product)
-    # for characteristic in product.characteristics:
-    #     db_characteristic = models.Characteristic(
-    #         name=characteristic.name,
-    #         value=characteristic.value,
-    #         product_id=db_product.id,
-    #     )
-    #     db.add(db_characteristic)
-    # await db.commit()
-    # await db.refresh(db_product)
+    for characteristic in product.characteristics:
+        db_characteristic = schemas.Characteristic(
+            name=characteristic.name,
+            value=characteristic.value,
+            product_id=db_product.id,
+        )
+        db.add(db_characteristic)
+    await db.commit()
+    await db.refresh(db_product)
     return db_product
 
 #Get all products
