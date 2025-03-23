@@ -62,6 +62,24 @@ class ProductCreate(ProductBase):
 
 class Product(ProductBase):
     id: int = Field(..., title="ID of product", description="Unique identifier for this product")
+    name: str = Field(
+        ...,
+        title="Name of product",
+        description="Name of requiered product",
+        example="Laptop",
+    )
+    quantity: int = Field(
+        ...,
+        title="Quantity of product",
+        description="How much of this product we have",
+        example=30
+    )
+    sku: str = Field(
+        ...,
+        title="SKU of product",
+        description="Unique identifier for this product",
+        example="LAP223"
+    )
     characteristics: List[Characteristic] = Field(
         default=[], title="Characteristics of product",
         description="Additional info about product",
