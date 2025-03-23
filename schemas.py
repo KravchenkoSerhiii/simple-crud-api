@@ -54,7 +54,6 @@ class ProductBase(BaseModel):
     )
 
 class ProductCreate(ProductBase):
-    id: int
     name: str
     quantity: int
     sku: str
