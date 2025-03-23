@@ -8,7 +8,6 @@ venv/
 Dockerfile
 docker-compose.yml
 *.md
-*.txt
 *.log
 
 .idea/
