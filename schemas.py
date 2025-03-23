@@ -83,11 +83,11 @@ class Product(ProductBase):
         description="Unique identifier for this product",
         example="LAP223"
     )
-    characteristics: List[Characteristic] = Field(
-        default=[], title="Characteristics of product",
-        description="Additional info about product",
-        example=1
-    )
+    # characteristics: List[Characteristic] = Field(
+    #     default=[], title="Characteristics of product",
+    #     description="Additional info about product",
+    #     example=1
+    # )
 
     class Config:
         orm_mode = True
