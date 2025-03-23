@@ -33,6 +33,5 @@ docker-compose.override.yml
 .env.docker
 
 .aws/
-*.pem
 
 .DS_Store
