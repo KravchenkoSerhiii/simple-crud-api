@@ -11,15 +11,15 @@ async def create_product(db: AsyncSession, product: schemas.ProductCreate):
     db.add(db_product)
     await db.commit()
     await db.refresh(db_product)
-    # for characteristic in product.characteristics:
-    #     db_characteristic = models.Characteristic(
-    #         name=characteristic.name,
-    #         value=characteristic.value,
-    #         product_id=db_product.id,
-    #     )
-    #     db.add(db_characteristic)
-    # await db.commit()
-    # await db.refresh(db_product)
+    for characteristic in product.characteristics:
+        db_characteristic = models.Characteristic(
+            name=characteristic.name,
+            value=characteristic.value,
+            product_id=db_product.id,
+        )
+        db.add(db_characteristic)
+    await db.commit()
+    await db.refresh(db_product)
     return db_product
 
 #Get all products
