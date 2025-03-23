@@ -36,7 +36,7 @@ async def get_products(skip: int = 0, limit: int = 100, db: AsyncSession = Depen
     return await product_crud.get_products(db=db, skip=skip, limit=limit)
 
 @app.post("/products/",
-          response_model=schemas.Product,
+          response_model=schemas.Product(id=Product.id, name=Product.name, sku=Product.sku),
           summary="Create a new product",
           description="Create a new product in DB",
           responses={
