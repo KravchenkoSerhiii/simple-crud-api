@@ -54,6 +54,9 @@ class ProductBase(BaseModel):
     )
 
 class ProductCreate(ProductBase):
+    name: str
+    quantity: int
+    sku: str
     characteristics: List[CharacteristicCreate] = Field(
         default=[], title="Characteristics of product",
         description="Additional info about product",
