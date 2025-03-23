@@ -57,11 +57,11 @@ class ProductCreate(ProductBase):
     name: str
     quantity: int
     sku: str
-    characteristics: List[CharacteristicCreate] = Field(
-        default=[], title="Characteristics of product",
-        description="Additional info about product",
-        example="RAM"
-    )
+    # characteristics: List[CharacteristicCreate] = Field(
+    #     default=[], title="Characteristics of product",
+    #     description="Additional info about product",
+    #     example="RAM"
+    # )
 
 class Product(ProductBase):
     id: int = Field(..., title="ID of product", description="Unique identifier for this product")
